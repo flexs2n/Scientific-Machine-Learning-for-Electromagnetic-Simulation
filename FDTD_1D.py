@@ -5,7 +5,7 @@ import numpy as np
 jmax = 500
 jsource = 100
 nmax = 2000
-
+#1D boundary conditions
 # Field arrays
 Ex = np.zeros(jmax)
 Hz = np.zeros(jmax)
