@@ -1,2 +1,8 @@
 # BEng_project
 BEng 4th year project
+
+
+Background: This project aims to evaluate the potential of the NVIDIA Modulus framework for simulating 2D electromagnetic fields, specifically focusing on transverse magnetic (TM) and transverse electric (TE) modes. Modulus is a physics-informed neural network (PINN) framework designed to solve partial differential equations (PDEs) through deep learning. We will compare its performance against the classical Finite Difference Time Domain (FDTD) method, a standard numerical technique for solving Maxwell's equations in time-domain simulations.
+
+A key focus of this evaluation is the balance between computational efficiency and solution accuracy as the finite dimensions of the simulation domain increase. This includes exploring how Modulus and FDTD perform in larger domains with complex configurations, particularly when these domains contain multiple inhomogeneities in their electromagnetic properties, such as varying permittivity and permeability. The goal is to understand how agile and scalable the Modulus framework is compared to traditional methods.
+
