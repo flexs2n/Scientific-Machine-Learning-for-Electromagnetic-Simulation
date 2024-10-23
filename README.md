@@ -7,4 +7,6 @@ Background: This project aims to evaluate the potential of the NVIDIA Modulus fr
 A key focus of this evaluation is the balance between computational efficiency and solution accuracy as the finite dimensions of the simulation domain increase. This includes exploring how Modulus and FDTD perform in larger domains with complex configurations, particularly when these domains contain multiple inhomogeneities in their electromagnetic properties, such as varying permittivity and permeability. The goal is to understand how agile and scalable the Modulus framework is compared to traditional methods.
 
 Objectives
+A). Compare Accuracy and Stability of Modulus for TM and TE Fields: Simulate electromagnetic wave propagation in 2D using the Modulus framework, focusing on both transverse magnetic (TM) and transverse electric (TE) field configurations, and compare the results with those obtained using the classical FDTD method, particularly examining the accuracy of field values (e.g., electric and magnetic field distributions) and their temporal evolution. Evaluate how the accuracy of the Modulus framework scales as the domain size increases, identifying any limitations or advantages over FDTD in larger problem domains.
+
 
