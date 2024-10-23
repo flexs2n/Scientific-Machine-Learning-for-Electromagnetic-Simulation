@@ -9,4 +9,3 @@ A key focus of this evaluation is the balance between computational efficiency a
 Objectives
 A). Compare Accuracy and Stability of Modulus for TM and TE Fields: Simulate electromagnetic wave propagation in 2D using the Modulus framework, focusing on both transverse magnetic (TM) and transverse electric (TE) field configurations, and compare the results with those obtained using the classical FDTD method, particularly examining the accuracy of field values (e.g., electric and magnetic field distributions) and their temporal evolution. Evaluate how the accuracy of the Modulus framework scales as the domain size increases, identifying any limitations or advantages over FDTD in larger problem domains.
 
-
