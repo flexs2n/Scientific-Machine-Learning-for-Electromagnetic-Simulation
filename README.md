@@ -16,4 +16,46 @@ C). Analyse Performance in Domains with Inhomogeneous Material Properties: Simul
 
 D). Explore Flexibility and Usability of the Modulus Framework: Evaluate the ease of setting up and configuring simulations within the Modulus framework, including defining complex geometries, boundary conditions, and material properties, especially as the domain complexity increases. Identify areas where Modulus may simplify problem setup or enable rapid iterations compared to traditional FDTD methods, particularly in scenarios requiring large domain simulations.
 
+Desirable Outcomes
 
+1. Detailed Comparison of Accuracy Across Domain Sizes: 
+   - Generate quantitative metrics comparing the field values obtained through Modulus and FDTD, including error norms (e.g., L2 error) and field distributions over time and space, as a function of domain size.
+   - Provide visualizations of electromagnetic field distributions for TM and TE fields in both homogeneous and inhomogeneous media, highlighting any discrepancies between the methods, especially as domain size grows.
+
+2. Scalability Analysis of Computational Efficiency:
+   - A comprehensive report on computational resources (GPU/CPU usage, memory consumption) and time required by Modulus to achieve a desired level of accuracy, compared to FDTD, for a range of domain sizes.
+   - Identification of the scaling behavior of Modulus relative to FDTD, highlighting scenarios where Modulus maintains accuracy with reduced computational effort or, conversely, where FDTD remains more efficient.
+   - Insights into how the computational efficiency of both methods is affected by the presence of high-contrast material interfaces in larger domains.
+
+3. Case Studies of Inhomogeneous Domains:
+   - Simulate a set of test cases where the domain contains obstacles, inclusions, or regions with varying dielectric properties, and analyze how Modulus’s accuracy and efficiency scale with domain size compared to FDTD.
+   - Create a benchmark library of simulations for electromagnetic wave propagation in complex, large-scale domains that can be used for future validation of other deep learning-based frameworks.
+
+4. Conclusions & Recommendations:
+   - Provide insights into the practicality of adopting deep learning frameworks like Modulus for large-scale electromagnetic simulations in practical applications.
+   - Identify scenarios where Modulus's computational scaling could offer significant advantages, such as in rapid prototyping of electromagnetic devices, optimizing materials over large domains, or simulations where iterative design adjustments are critical.
+
+Resources
+
+- Simulation Frameworks: NVIDIA Modulus (for deep learning-based simulations) and a classical FDTD codebase (e.g., implemented in Python or MATLAB) for comparison.
+- Computational Resources: Access to GPU resources for training the Modulus models, as well as CPU resources for running FDTD simulations on increasing domain sizes.
+
+Suggested work plan 
+
+1. Phase 1: Literature Review & Setup:
+   - Review relevant documentation for NVIDIA Modulus and research on using deep learning for solving Maxwell’s equations.
+   - Set up a basic FDTD simulation code for TM and TE modes.
+   - Prepare test cases for small and large homogeneous and inhomogeneous domain simulations.
+
+2. Phase 2: Modulus Training & Validation:
+   - Implement the electromagnetic problem setups in Modulus and train models for TM and TE fields.
+   - Validate the results against FDTD solutions across different domain sizes and adjust training parameters as needed.
+   - Focus on achieving stable and accurate results for a range of domain conditions and sizes.
+
+3. Phase 3: Benchmarking & Analysis:
+   - Conduct a systematic comparison of computational performance and accuracy between Modulus and FDTD as domain size increases.
+   - Analyze the behavior of both methods in handling larger domains with complex material interfaces.
+
+4. Phase 4: Report & Presentation:
+   - Compile the results, generate visualizations, and create a comprehensive report with emphasis on computational efficiency vs. accuracy trade-offs.
+   - Prepare a presentation summarizing findings, with recommendations for the use of deep learning in large-scale electromagnetic simulations.
