@@ -59,3 +59,37 @@ D). Explore Flexibility and Usability of the Modulus Framework: Evaluate the eas
 4. Phase 4: Report & Presentation:
    - Compile the results, generate visualizations, and create a comprehensive report with emphasis on computational efficiency vs. accuracy trade-offs.
    - Prepare a presentation summarizing findings, with recommendations for the use of deep learning in large-scale electromagnetic simulations.
+   - 
+
+   DayBook:
+   Notes: A PINN for the 2D Maxwell's equations in the Transverse Electric (TE) mode.
+
+    Attributes:
+        backbone: The backbone neural network model that approximates the field solutions.
+        _loss_residual_weight: The weight of the residual loss.
+        _loss_boundary_weight: The weight of the boundary loss.
+        loss_residual_tracker: Tracker for residual loss.
+        loss_boundary_tracker: Tracker for boundary loss.
+        mae_tracker: Tracker for mean absolute error.
+
+   Initializes the Maxwell2DPinn model.
+   Args:
+            backbone: The neural network backbone model.
+            loss_residual_weight: Weight of the residual loss.
+            loss_boundary_weight: Weight of the boundary loss.
+
+   Performs a forward pass and computes the fields and residuals for Maxwell's equations.
+        Args:
+            inputs: A tuple containing field samples and boundary samples.
+            training: Boolean indicating training mode.
+        Returns:
+            Tuple of electric field, magnetic field residuals, and boundary solution.
+
+   Returns the metrics to track.
+        Sets the loss weights.
+
+    Args:
+            loss_residual_weight: The weight of the residual loss.
+            loss_boundary_weight: The weight of the boundary loss.
+        """
+    
