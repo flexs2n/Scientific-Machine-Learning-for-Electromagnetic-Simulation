@@ -119,6 +119,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 For questions or collaborations, please contact:  
-[Your Name]  
-[Your Email]  
-[Your Institution]
+Balaji Anandganesh
+ba-1@sms.ed.ac.uk 
+The University of Edinburgh
