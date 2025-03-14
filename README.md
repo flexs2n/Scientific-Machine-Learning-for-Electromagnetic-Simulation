@@ -1,9 +1,49 @@
+<p align="center">
+  <a href="https://github.com/[YourUsername]/BEng_project/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python version"></a>
+  <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black"></a>
+  <a href="https://github.com/[YourUsername]/BEng_project/blob/main/CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg" alt="Contributions welcome"></a>
+  <br>
+  <a href="https://github.com/[YourUsername]/BEng_project/stargazers"><img src="https://img.shields.io/github/stars/[YourUsername]/BEng_project.svg?style=social&label=Star" alt="GitHub stars"></a>
+  <a href="https://github.com/[YourUsername]/BEng_project/network/members"><img src="https://img.shields.io/github/forks/[YourUsername]/BEng_project.svg?style=social&label=Fork" alt="GitHub forks"></a>
+  <a href="https://github.com/[YourUsername]/BEng_project/issues"><img src="https://img.shields.io/github/issues/[YourUsername]/BEng_project.svg" alt="GitHub issues"></a>
+  <a href="https://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
+  <a href="https://github.com/[YourUsername]/BEng_project/wiki"><img src="https://img.shields.io/badge/docs-latest-brightgreen.svg" alt="Documentation Status"></a>
+  <a href="https://discord.gg/[YourDiscordLink]"><img src="https://img.shields.io/discord/1234567890?color=7289da&label=Discord&logo=discord&logoColor=white" alt="Discord"></a>
+</p>
+
 # BEng Project: Evaluating NVIDIA Modulus for 2D Electromagnetic Field Simulations
 
-## Overview
+## Table of Contents
+- [Introduction](#-introduction)
+- [Why NVIDIA Modulus?](#-why-nvidia-modulus)
+- [Features & Capabilities](#-features--capabilities)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+- [Usage Examples](#-usage-examples)
+- [Documentation](#-documentation)
+- [Contributing](#-contributing)
+- [Community](#-community)
+- [License](#-license)
+
+---
+
+## 📖 Introduction
 This repository contains the work for a 4th-year BEng project aimed at evaluating the NVIDIA Modulus framework for simulating 2D electromagnetic fields, specifically focusing on transverse magnetic (TM) and transverse electric (TE) modes. The project compares the performance of Modulus, a physics-informed neural network (PINN) framework, against the classical Finite Difference Time Domain (FDTD) method. The primary focus is on understanding the trade-offs between computational efficiency and solution accuracy as the simulation domain size increases, particularly in domains with inhomogeneous material properties.
 
 ---
+
+## 🤔 Why NVIDIA Modulus?
+Electromagnetic simulations are critical for designing and optimizing devices in fields such as telecommunications, radar systems, and photonics. Traditional numerical methods like FDTD are widely used but can become computationally expensive for large-scale or complex problems. NVIDIA Modulus offers a promising alternative by leveraging deep learning to solve partial differential equations (PDEs) like Maxwell's equations. This project explores the potential of Modulus for 2D electromagnetic simulations, comparing its accuracy, stability, and computational efficiency with FDTD.
+
+---
+
+## 🚀 Features & Capabilities
+- **Physics-Informed Neural Networks (PINNs)**: Solve Maxwell's equations using deep learning.
+- **Comparison with FDTD**: Benchmark accuracy and computational efficiency against classical methods.
+- **Scalability Analysis**: Evaluate performance as domain size and complexity increase.
+- **Inhomogeneous Material Support**: Simulate domains with varying permittivity and permeability.
+- **Flexible Setup**: Easily define complex geometries, boundary conditions, and material properties.
 
 ## Background
 Electromagnetic simulations are critical for designing and optimizing devices in fields such as telecommunications, radar systems, and photonics. Traditional numerical methods like FDTD are widely used but can become computationally expensive for large-scale or complex problems. NVIDIA Modulus offers a promising alternative by leveraging deep learning to solve partial differential equations (PDEs) like Maxwell's equations. This project explores the potential of Modulus for 2D electromagnetic simulations, comparing its accuracy, stability, and computational efficiency with FDTD.
