@@ -9,7 +9,6 @@
   <a href="https://github.com/[YourUsername]/BEng_project/issues"><img src="https://img.shields.io/github/issues/[YourUsername]/BEng_project.svg" alt="GitHub issues"></a>
   <a href="https://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
   <a href="https://github.com/[YourUsername]/BEng_project/wiki"><img src="https://img.shields.io/badge/docs-latest-brightgreen.svg" alt="Documentation Status"></a>
-  <a href="https://discord.gg/[YourDiscordLink]"><img src="https://img.shields.io/discord/1234567890?color=7289da&label=Discord&logo=discord&logoColor=white" alt="Discord"></a>
 </p>
 
 # BEng Project: Evaluating NVIDIA Modulus for 2D Electromagnetic Field Simulations
