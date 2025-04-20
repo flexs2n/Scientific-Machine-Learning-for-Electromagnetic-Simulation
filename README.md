@@ -1,3 +1,4 @@
+
 <p align="center">
   <a href="https://github.com/[YourUsername]/BEng_project/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python version"></a>
@@ -147,7 +148,11 @@ The repository is organized as follows:
   - Computes electric field, magnetic field residuals, and boundary solutions.  
 
 - **Metrics**:  
-  - Tracks residual loss, boundary loss, and mean absolute error.  
+  - Tracks residual loss, boundary loss, and mean absolute error.
+ 
+**To run**
+pip install hydra-core nvidia-physicsnemo matplotlib imageio termcolor plotly tqdm h5py omegaconf wandb
+torchrun --standalone --nnodes=1 train_tmz.py
 
 ---
 
