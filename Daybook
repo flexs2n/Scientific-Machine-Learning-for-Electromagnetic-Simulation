@@ -2,98 +2,95 @@
 
 ## Entries
 
+# Daybook
+
+## Entries
+
 ### 3rd October 2024 (Thursday)
 - **Notes**: Background Research: Spectroscopy Methods
-- **Tasks**: meet professor
-- **Progress**: Meeting with professor, discussing past expoereience 
+- **Tasks**: Meet professor
+- **Progress**: Meeting with professor, discussing past experience 
 - **Reflection**: -
 
 ---
 
 ### 10th October 2024 (Thursday)
 - **Notes**: Background Research: Computational Electromagnetics 
-- **Tasks**: Referered to lecture notes of Electromagnetics 3 and Radio Frequency
-- **Progress**: Read the background material and met with Prof.Nick, got the analytical simulation on MATLAB
+- **Tasks**: Referred to lecture notes of Electromagnetics 3 and Radio Frequency
+- **Progress**: Read the background material and met with Prof. Nick, got the analytical simulation on MATLAB
 - **Reflection**: Tried different inputs such as different shapes/size and resolution
 
 ---
 
 ### 17th October 2024 (Thursday)
-- **Notes**:Introduction to NVIDIA Modulus 
-- **Tasks**:Revise PyTorch skills
+- **Notes**: Introduction to NVIDIA Modulus 
+- **Tasks**: Revise PyTorch skills
 - **Progress**: Completed
-- **Reflection**: Practised and warmed-up Pytorch 
+- **Reflection**: Practised and warmed up PyTorch 
 
 ---
 
 ### 24th October 2024 (Thursday)
 - **Notes**: NVIDIA Modulus on Shannon (GPU Cluster)
-- **Tasks**:
-- **Progress**: Got Familiar with SLURM and Shannon
-- **Reflection**:
+- **Tasks**: 
+- **Progress**: Got familiar with SLURM and Shannon
+- **Reflection**: 
 
 ---
 
 ### 31st October 2024 (Thursday)
-- **Notes**: Issues: Nvidia Modulus Wheel breaks due to conflicting packages
-- **Tasks**: Try different methods such as creating envs on Miniconda
-- **Progress**: Inspite of the effort, Issue exist
-- **Reflection**: Driver incompatible, so GPU on Laptop was not being 
+- **Notes**: Presentation
+- **Tasks**: Prepare slides based on the background material for the presentation
+- **Progress**: The presentation 
+- **Reflection**: Focus more on the plan, over the theory for the presentation
 
 ---
 
-### 7th November 2024 (Thursday)
-- **Notes**: memory and scaling
-- **Tasks**: Show Professor about 1D implemetation
+### 8th November 2024 (Friday)
+- **Notes**: Memory and scaling
+- **Tasks**: Show professor about 1D implementation
 - **Progress**: Completed
-- **Reflection**: Need to focus on the objective and start woring on 2D implementation using NVIDIA Modulus 
+- **Reflection**: Need to focus on the objective and start working on 2D implementation using NVIDIA Modulus 
 
 ---
 
-### 14th November 2024 (Thursday)
-- **Notes**: Issues: Nvidia Modulus Wheel breaks due to conflicting packages
-- **Tasks**: Try different methods such as creating envs on Miniconda
-- **Progress**: Inspite of the effort, Issue exist
-- **Reflection**: Driver incompatible, so GPU on Laptop was not being 
+### 15th November 2024 (Friday)
+- **Notes**: Issues: NVIDIA Modulus wheel breaks due to conflicting packages
+- **Tasks**: Try different methods such as creating environments on Miniconda
+- **Progress**: In spite of the effort, issue exists
+- **Reflection**: Driver incompatible, so GPU on laptop was not being used
+
 ---
 
-### 21st November 2024 (Thursday)
-- **Notes**: Issues: Nvidia Modulus Wheel breaks due to conflicting packages
-- **Tasks**: Try different methods such as creating envs on Miniconda
-- **Progress**: Inspite of the effort, Issue exist
-- **Reflection**: Driver incompatible, so GPU on Laptop was not being 
+### 22nd November 2024 (Friday)
+- **Notes**: Issues: NVIDIA Modulus wheel breaks due to conflicting packages
+- **Tasks**: Try different methods such as creating environments on Miniconda
+- **Progress**: In spite of the effort, issue exists
+- **Reflection**: Driver incompatible, so GPU on laptop was not being used
 
 ---
 
 ### 28th November 2024 (Thursday)
-- **Notes**: Nvidia Driver on Linux WSL Issue
-- **Tasks**: Read documentation and to install Nvidia Driver on Linux
+- **Notes**: NVIDIA driver on Linux WSL issue
+- **Tasks**: Read documentation and install NVIDIA driver on Linux
 - **Progress**: Driver installed, still a GPU compatibility issue
 - **Reflection**: It was not useful
 
 ---
 
 ### 5th December 2024 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
-
----
-
-### 2nd January 2025 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
+- **Notes**: GPUs listed on the documentation are mostly NVIDIA Hoppers i.e., GPUs manufactured after 2019 are compatible (not RTX 2080ti)
+- **Tasks**: Investigate pull requests and issues on GitHub
+- **Progress**: Investigated that NVIDIA Modulus, the deep learning framework, works on Shannon
+- **Reflection**: NVIDIA Modulus works on Shannon, but not NVIDIA Modulus.sym. Received help from professor and NVIDIA employee Paul through the forum, by running Modulus on Docker
 
 ---
 
 ### 9th January 2025 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
+- **Notes**: Data preparation 
+- **Tasks**: Data preparation techniques and how to prepare from MATLAB simulation
+- **Progress**: Completed 
+- **Reflection**: Data preparation in \(t\), \(x\), \(y\), \(z\)
 
 ---
 
@@ -145,7 +142,7 @@
 
 ---
 
-### 27th February 2025 (Thursday)
+### 26th February 2025 (Friday)
 - **Notes**:
 - **Tasks**:
 - **Progress**:
@@ -162,10 +159,10 @@
 ---
 
 ### 13th March 2025 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
+- **Notes**: Fully connected Model trained on TMz 
+- **Tasks**: Work on Inference
+- **Progress**: completed
+- **Reflection**: Understand Inference and Prepare data
 
 ---
 
