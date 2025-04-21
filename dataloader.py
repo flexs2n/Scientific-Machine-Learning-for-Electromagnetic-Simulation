@@ -4,6 +4,7 @@ from torch.utils.data import DataLoader, Dataset
 import os
 import glob
 import h5py
+from IPython.display import display
 
 try:
     from .datasets import FDTD2DDataset
@@ -12,22 +13,22 @@ except:
 
 
 class EMTMzDataloader(Dataset):
-    """Dataloader for 2D TMz Electromagnetics Dataset from MATLAB .mat files"""
+    """Dataloader for 2D TMz Electromagnetics Dataset from HDF5 files"""
 
     def __init__(
-        self, dataset: FDTD2DDataset, sub_x=1, sub_y=1, sub_t=1, ind_x=None, ind_y=None, ind_t=None
+        self, dataset: FDTD2DDataset, sub_x=2, sub_y=2, sub_t=1, ind_x=None, ind_y=None, ind_t=None
     ):
         self.dataset = dataset
         self.sub_x = sub_x
         self.sub_y = sub_y
         self.sub_t = sub_t
-        self.ind_x = ind_x
-        self.ind_y = ind_y
-        self.ind_t = ind_t
+        self.ind_x = ind_x or 100  # NX=100
+        self.ind_y = ind_y or 100  # NY=100
+        self.ind_t = ind_t or 100  # Focus on first 100 steps (non-zero fields)
         t, x, y = dataset.get_coords(0)
-        self.x = x[:ind_x:sub_x]
-        self.y = y[:ind_y:sub_y]
-        self.t = t[:ind_t:sub_t]
+        self.x = x[:self.ind_x:self.sub_x]  # e.g., [50] if sub_x=2
+        self.y = y[:self.ind_y:self.sub_y]  # e.g., [50] if sub_y=2
+        self.t = t[:self.ind_t:self.sub_t]  # e.g., [100] if sub_t=1, ind_t=100
         self.nx = len(self.x)
         self.ny = len(self.y)
         self.nt = len(self.t)
@@ -43,50 +44,65 @@ class EMTMzDataloader(Dataset):
         """Gets input and output tensors for the dataloader"""
         fields = self.dataset[index]
 
-        # Fields: Ez, Hx, Hy
-        Ez = fields["Ez"]
-        Hx = fields["Hx"]
-        Hy = fields["Hy"]
+        # Fields
+        Ez = fields["Ez_out"]  # [208, 100, 100]
+        Hx = fields["Hx_out"]  # [208, 100, 101]
+        Hy = fields["Hy_out"]  # [208, 101, 100]
+        Sx = fields["Sx"]  # Scalar
+        Sy = fields["Sy"]  # Scalar
+        src = fields["src"]  # [208]
 
-        # Subsample and convert to tensors, aligning grids
-        # Note: Hx and Hy are staggered; interpolate to Ez grid (nx, ny)
+        # Interpolate Hx, Hy to Ez grid [208, 100, 100]
+        Hx = (Hx[:, :, :-1] + Hx[:, :, 1:]) / 2  # Average y-direction
+        Hy = (Hy[:, :-1, :] + Hy[:, 1:, :]) / 2  # Average x-direction
+
+        # Subsample and convert to tensors
         Ez_tensor = torch.from_numpy(
             Ez[:self.ind_t:self.sub_t, :self.ind_x:self.sub_x, :self.ind_y:self.sub_y]
-        )
+        ).float()
         Hx_tensor = torch.from_numpy(
-            Hx[:self.ind_t:self.sub_t, :self.ind_x:self.sub_x, :-1:self.sub_y]
-        )  # NY+1 -> NY
+            Hx[:self.ind_t:self.sub_t, :self.ind_x:self.sub_x, :self.ind_y:self.sub_y]
+        ).float()
         Hy_tensor = torch.from_numpy(
-            Hy[:self.ind_t:self.sub_t, :-1:self.sub_x, :self.ind_y:self.sub_y]
-        )  # NX+1 -> NX
+            Hy[:self.ind_t:self.sub_t, :self.ind_x:self.sub_y, :self.ind_y:self.sub_y]
+        ).float()
 
-        # Simple interpolation to align Hx, Hy with Ez grid (could refine later)
-        Hx_tensor = (Hx_tensor[:, :, :-1] + Hx_tensor[:, :, 1:]) / 2  # Average y-direction
-        Hy_tensor = (Hy_tensor[:, :-1, :] + Hy_tensor[:, 1:, :]) / 2  # Average x-direction
+        # Stack outputs: [nt, nx, ny, 3]
+        data = torch.stack([Ez_tensor, Hx_tensor, Hy_tensor], dim=-1)  # e.g., [100, 50, 50, 3]
 
-        # Stack outputs: (nt, nx, ny, 3)
-        data = torch.stack([Ez_tensor, Hx_tensor, Hy_tensor], dim=-1)
-        data0 = data[0].reshape(1, self.nx, self.ny, -1).repeat(self.nt, 1, 1, 1)
+        # Initial conditions: [1, nx, ny, 3]
+        data0 = data[0:1].repeat(self.nt, 1, 1, 1)  # Repeat t=0 over nt
 
         # Grid tensors
         grid_t = (
             torch.from_numpy(self.t)
             .reshape(self.nt, 1, 1, 1)
             .repeat(1, self.nx, self.ny, 1)
+            .float()
         )
         grid_x = (
             torch.from_numpy(self.x)
             .reshape(1, self.nx, 1, 1)
             .repeat(self.nt, 1, self.ny, 1)
+            .float()
         )
         grid_y = (
             torch.from_numpy(self.y)
             .reshape(1, 1, self.ny, 1)
             .repeat(self.nt, self.nx, 1, 1)
+            .float()
         )
 
-        # Inputs: (nt, nx, ny, 6) - grid + initial conditions
-        inputs = torch.cat([grid_t, grid_x, grid_y, data0], dim=-1)
+        # Source term: Create a 2D mask at Sx, Sy
+        src_tensor = torch.from_numpy(src[:self.ind_t:self.sub_t]).reshape(self.nt, 1, 1, 1).float()
+        src_mask = torch.zeros(1, self.nx, self.ny, 1).float()
+        src_idx_x = min(int(Sx * self.nx / 100), self.nx - 1)  # Scale Sx to subsampled grid
+        src_idx_y = min(int(Sy * self.ny / 100), self.ny - 1)  # Scale Sy to subsampled grid
+        src_mask[:, src_idx_x, src_idx_y, :] = 1.0
+        src_field = src_tensor * src_mask  # [nt, nx, ny, 1]
+
+        # Inputs: [nt, nx, ny, 7] - grid + initial conditions + source
+        inputs = torch.cat([grid_t, grid_x, grid_y, data0, src_field], dim=-1)  # e.g., [100, 50, 50, 7]
         outputs = data
 
         return inputs, outputs
@@ -124,10 +140,10 @@ class EMTMzDataloader(Dataset):
 
 if __name__ == "__main__":
     dataset = FDTD2DDataset(
-        data_path="em_data",
-        output_names="output_*.mat",
-        field_names=["Ez", "Hx", "Hy"],
+        data_path="hdf5_files",
+        output_names="results_*.h5",
     )
-    em_dataloader = EMTMzDataloader(dataset)
+    em_dataloader = EMTMzDataloader(dataset, sub_t=1, sub_x=2, sub_y=2, ind_t=100)
     inputs, outputs = em_dataloader[0]
-    print(f"Inputs shape: {inputs.shape}, Outputs shape: {outputs.shape}")
+    print(f"Inputs shape: {inputs.shape}, Outputs shape: {outputs.shape}") 
+    
