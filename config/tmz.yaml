@@ -1,0 +1,120 @@
+## Training options
+load_ckpt: False
+use_wandb: True
+output_dir: './checkpoints/TMz/'
+derivative: 'physicsnemo'
+
+###################
+## Model options
+model_params:
+  layers: 64
+  modes: 8
+  num_fno_layers: 4
+  fc_dim: 128
+  decoder_layers: 1
+  in_dim: 7  # t, x, y, Ez0, Hx0, Hy0, src_field
+  out_dim: 3  # Ez, Hx, Hy
+  dimension: 3
+  activation: 'gelu'
+  pad_x: 5
+  pad_y: 5
+  pad_z: 0
+  input_norm: [3.333e-10, 0.1, 0.1, 1.2e4, 1.0, 1.0, 1.0]  # Scale for t, x, y, Ez, Hx, Hy, src
+  output_norm: [1.2e4, 1.0, 1.0]  # Scale for Ez, Hx, Hy
+
+###################
+## Dataset options
+dataset_params:
+  data_dir: 'hdf5_files'
+  output_names: 'results_*.h5'
+  dataset_type: 'tmz'
+  name: 'TMz'
+  num: 100
+  num_train: 90
+  num_test: 10
+  sub_x: 2
+  sub_y: 2
+  sub_t: 1
+  ind_x: 100
+  ind_y: 100
+  ind_t: 100
+  nin: 7
+  nout: 3
+  fields: ['Ez', 'Hx', 'Hy']
+
+###################
+## Dataloader options
+train_loader_params:
+  batch_size: 1
+  shuffle: True
+  num_workers: 4
+  pin_memory: True
+
+val_loader_params:
+  batch_size: 1
+  shuffle: False
+  num_workers: 4
+  pin_memory: True
+
+test_loader_params:
+  batch_size: 1
+  shuffle: False
+  num_workers: 4
+  pin_memory: True
+
+###################
+## Loss options
+loss_params:
+  epsilon_0: 8.854187817e-12
+  mu_0: 1.2566370614359173e-6  # 4π * 1e-7
+  initial_data_weight: 0.5
+  initial_ic_weight: 0.3
+  initial_pde_weight: 0.2
+  final_data_weight: 0.5
+  final_ic_weight: 0.3
+  final_pde_weight: 0.2
+  schedule_epochs: 100
+  use_adaptive_weighting: True
+  smoothing_alpha: 0.9
+  use_data_loss: True
+  use_ic_loss: True
+  use_pde_loss: True
+  Ez_weight: 1e-4  # Scale down due to Ez ~1.2e4
+  Hx_weight: 1.0
+  Hy_weight: 1.0
+  DEz_weight: 1e-4
+  DHx_weight: 1.0
+  DHy_weight: 1.0
+  Lx: 0.1
+  Ly: 0.1
+  tend: 3.333e-10
+
+###################
+## Optimizer options
+optimizer_params:
+  betas: [0.9, 0.999]
+  lr: 0.001
+  milestones: [25, 50, 75, 100]
+  gamma: 0.5
+  weight_decay: 0.1
+
+###################
+## Train params
+train_params:
+  epochs: 100
+  ckpt_freq: 25
+  ckpt_path: 'checkpoints/TMz/'
+
+###################
+## wandb params
+wandb_params:
+  wandb_dir: 'logs'
+  wandb_project: 'TMz_PINO'
+  wandb_group: 'TMz'
+  wandb_num_plots: 1
+  wandb_plot_freq: 5
+  wandb_plot_types: ['ic', 'pred', 'true', 'error']
+
+test:
+  batchsize: 1
+  ckpt_path: 'checkpoints/TMz/'
