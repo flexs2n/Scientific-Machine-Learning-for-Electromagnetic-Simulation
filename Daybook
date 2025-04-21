@@ -3,102 +3,77 @@
 ## Entries
 
 ### 3rd October 2024 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
+- **Notes**: Background Research: Spectroscopy Methods
+- **Tasks**: meet professor
+- **Progress**: Meeting with professor, discussing past expoereience 
+- **Reflection**: -
 
 ---
 
 ### 10th October 2024 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
+- **Notes**: Background Research: Computational Electromagnetics 
+- **Tasks**: Referered to lecture notes of Electromagnetics 3 and Radio Frequency
+- **Progress**: Read the background material and met with Prof.Nick, got the analytical simulation on MATLAB
+- **Reflection**: Tried different inputs such as different shapes/size and resolution
 
 ---
 
 ### 17th October 2024 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
+- **Notes**:Introduction to NVIDIA Modulus 
+- **Tasks**:Revise PyTorch skills
+- **Progress**: Completed
+- **Reflection**: Practised and warmed-up Pytorch 
 
 ---
 
 ### 24th October 2024 (Thursday)
-- **Notes**:
+- **Notes**: NVIDIA Modulus on Shannon (GPU Cluster)
 - **Tasks**:
-- **Progress**:
+- **Progress**: Got Familiar with SLURM and Shannon
 - **Reflection**:
 
 ---
 
 ### 31st October 2024 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
+- **Notes**: Issues: Nvidia Modulus Wheel breaks due to conflicting packages
+- **Tasks**: Try different methods such as creating envs on Miniconda
+- **Progress**: Inspite of the effort, Issue exist
+- **Reflection**: Driver incompatible, so GPU on Laptop was not being 
 
 ---
 
 ### 7th November 2024 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
+- **Notes**: memory and scaling
+- **Tasks**: Show Professor about 1D implemetation
+- **Progress**: Completed
+- **Reflection**: Need to focus on the objective and start woring on 2D implementation using NVIDIA Modulus 
 
 ---
 
 ### 14th November 2024 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
-
+- **Notes**: Issues: Nvidia Modulus Wheel breaks due to conflicting packages
+- **Tasks**: Try different methods such as creating envs on Miniconda
+- **Progress**: Inspite of the effort, Issue exist
+- **Reflection**: Driver incompatible, so GPU on Laptop was not being 
 ---
 
 ### 21st November 2024 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
+- **Notes**: Issues: Nvidia Modulus Wheel breaks due to conflicting packages
+- **Tasks**: Try different methods such as creating envs on Miniconda
+- **Progress**: Inspite of the effort, Issue exist
+- **Reflection**: Driver incompatible, so GPU on Laptop was not being 
 
 ---
 
 ### 28th November 2024 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
+- **Notes**: Nvidia Driver on Linux WSL Issue
+- **Tasks**: Read documentation and to install Nvidia Driver on Linux
+- **Progress**: Driver installed, still a GPU compatibility issue
+- **Reflection**: It was not useful
 
 ---
 
 ### 5th December 2024 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
-
----
-
-### 12th December 2024 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
-
----
-
-### 19th December 2024 (Thursday)
-- **Notes**:
-- **Tasks**:
-- **Progress**:
-- **Reflection**:
-
----
-
-### 26th December 2024 (Thursday)
 - **Notes**:
 - **Tasks**:
 - **Progress**:
@@ -155,7 +130,7 @@
 ---
 
 ### 13th February 2025 (Thursday)
-- **Notes**:
+- **Notes**:Prepared for my presentation
 - **Tasks**:
 - **Progress**:
 - **Reflection**:
